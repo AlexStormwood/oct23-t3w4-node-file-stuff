@@ -92,8 +92,12 @@ async function loadDataFromFile(targetPath){
 
 	let doesFileExist = await doesFileExistAsync(targetPath);
 	if (doesFileExist){
+		// data is null
 		data = await fsPromises.readFile(targetPath, { encoding: 'utf8' });
+		// data is a string
 		data = JSON.parse(data);
+		// data is an object 
+		console.log("Pokemon caught is: " + data["pokemonCaught"]);
 	}
 
 	return data;
